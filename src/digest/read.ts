@@ -8,7 +8,7 @@ const STATUSES: readonly string[] = ['ok', 'retry', 'fail'];
 type Line = { at: string; job: string; status: RunStatus; owner: string | null; error: string | null };
 
 // Parse one log line at the edge; anything off-shape is a bad line, not an error.
-function parseLine(text: string): Line | null {
+export function parseLine(text: string): Line | null {
   let v: unknown;
   try {
     v = JSON.parse(text);
